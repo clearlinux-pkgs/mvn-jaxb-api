@@ -4,7 +4,7 @@
 #
 Name     : mvn-jaxb-api
 Version  : 2.2.2
-Release  : 3
+Release  : 4
 URL      : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar
 Source0  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar
 Source1  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.jar
