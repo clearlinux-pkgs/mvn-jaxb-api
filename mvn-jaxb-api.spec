@@ -4,18 +4,21 @@
 #
 Name     : mvn-jaxb-api
 Version  : 2.2.2
-Release  : 4
+Release  : 5
 URL      : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar
 Source0  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar
 Source1  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.jar
 Source2  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.pom
 Source3  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.11/jaxb-api-2.2.11.jar
 Source4  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.11/jaxb-api-2.2.11.pom
-Source5  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.pom
+Source5  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.12/jaxb-api-2.2.12.jar
+Source6  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.12/jaxb-api-2.2.12.pom
+Source7  : https://repo1.maven.org/maven2/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : CDDL-1.1 GPL-2.0-only
+License  : CDDL-1.1 GPL-2.0 GPL-2.0-only
 Requires: mvn-jaxb-api-data = %{version}-%{release}
+Requires: mvn-jaxb-api-license = %{version}-%{release}
 
 %description
 No detailed description available
@@ -28,12 +31,22 @@ Group: Data
 data components for the mvn-jaxb-api package.
 
 
+%package license
+Summary: license components for the mvn-jaxb-api package.
+Group: Default
+
+%description license
+license components for the mvn-jaxb-api package.
+
+
 %prep
 %setup -q -n META-INF
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-jaxb-api
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/mvn-jaxb-api/LICENSE.txt
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.2
 cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar
 
@@ -49,8 +62,14 @@ cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.11
 cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.11/jaxb-api-2.2.11.pom
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.12
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.12/jaxb-api-2.2.12.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.12
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.12/jaxb-api-2.2.12.pom
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.2
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.pom
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.pom
 
 
 %files
@@ -62,5 +81,11 @@ cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api
 /usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.1/jaxb-api-2.1.pom
 /usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.11/jaxb-api-2.2.11.jar
 /usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.11/jaxb-api-2.2.11.pom
+/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.12/jaxb-api-2.2.12.jar
+/usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.12/jaxb-api-2.2.12.pom
 /usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar
 /usr/share/java/.m2/repository/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-jaxb-api/LICENSE.txt
